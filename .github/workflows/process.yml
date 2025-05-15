@@ -1,9 +1,9 @@
 name: Update data
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -40,7 +40,7 @@ jobs:
       - name: Run script
         run: |
           pushd ${{ env.SRC_NAME }} && 
-          bash scripts/run-top.sh data-cctv6 &&
+          bash scripts/run-top.sh data-cctv6 3 &&
           popd
 
       - name: Git auto commit
